@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>
+    Leadership notebook
+  </h1>
+</div>
+
+<!-- Simple table layout example -->
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @feedbacks.each do |feedback| %>
+          <tr>
+            <td><%= feedback.writer_id %>:</td>
+            <td><%= feedback.qualitative_fb %></td>
+            <td>(<%= feedback.interaction.description %>)</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

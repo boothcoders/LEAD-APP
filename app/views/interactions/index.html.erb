@@ -1,0 +1,160 @@
+<div class="page-header">
+  <h1>
+    Interactions
+    <a href="/interactions/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+  <h3>
+    NOTE: change into a calendar where add events
+  </h3>
+</div>
+
+<!-- Simple table layout example -->
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Occurs on</th>
+          <th>Occurs at</th>
+          <th>Goal</th>
+          <th>Description</th>
+          <th>Experiment</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @interactions.each do |interaction| %>
+          <tr>
+            <td><%= interaction.user_id %></td>
+            <td><%= interaction.occurs_on %></td>
+            <td><%= interaction.occurs_at %></td>
+            <td><%= interaction.goal_id %></td>
+            <td><%= interaction.description %></td>
+            <td><%= interaction.experiment_id %></td>
+            <td>
+              <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
+            </td>
+            <td>
+              <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
+            <td>
+              <a href="/delete_interaction/<%= interaction.id %>" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End simple table layout example -->
+
+<!-- Responsive, Isotope-based layout example -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" id="quicksearch" placeholder="Search Interactions (start typing)" class="form-control">
+  </div>
+</div>
+
+<hr>
+
+<div class="row isotope-container">
+<% @interactions.each do |interaction| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Interaction #<%= interaction.id %></h3>
+      </div>
+      <div class="panel-body">
+        <dl>
+          <dt>User</dt>
+          <dd><%= interaction.user_id %></dd>
+
+          <dt>Occurs on</dt>
+          <dd><%= interaction.occurs_on %></dd>
+
+          <dt>Occurs at</dt>
+          <dd><%= interaction.occurs_at %></dd>
+
+          <dt>Goal</dt>
+          <dd><%= interaction.goal_id %></dd>
+
+          <dt>Description</dt>
+          <dd><%= interaction.description %></dd>
+
+          <dt>Experiment</dt>
+          <dd><%= interaction.experiment_id %></dd>
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+          <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_interaction/<%= interaction.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<!-- JavaScript for Isotope layout and quicksearch -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+<script>
+  $(function() {
+    // quick search regex
+    var qsRegex;
+
+    // init Isotope
+    var $container = $('.isotope-container').isotope({
+      itemSelector: '.isotope-item',
+      layoutMode: 'masonry',
+      filter: function() {
+        return qsRegex ? $(this).text().match( qsRegex ) : true;
+      }
+    });
+
+    // use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+      $container.isotope();
+    }, 200 ) );
+
+  });
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+      if ( timeout ) {
+        clearTimeout( timeout );
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+      timeout = setTimeout( delayed, threshold || 100 );
+    }
+  }
+</script>
+
+<!-- End responsive, Isotope-based layout example -->
