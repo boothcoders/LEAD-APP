@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  #devise_for :users
+  devise_for :users
+  resources :users
+
+  resources :feedbacks
+
+  resources :requests
+
+  resources :interactions
 
   root 'feedbacks#index'
   # Routes for the Experiment resource:
@@ -17,57 +24,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_experiment/:id', { :controller => 'experiments', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Feedback resource:
-  # CREATE
-  get('/feedbacks/new', { :controller => 'feedbacks', :action => 'new' })
-  get('/create_feedback', { :controller => 'feedbacks', :action => 'create' })
-
-  # READ
-  get('/feedbacks', { :controller => 'feedbacks', :action => 'index' })
-  get('/feedbacks/:id', { :controller => 'feedbacks', :action => 'show' })
-
-  # UPDATE
-  get('/feedbacks/:id/edit', { :controller => 'feedbacks', :action => 'edit' })
-  get('/update_feedback/:id', { :controller => 'feedbacks', :action => 'update' })
-
-  # DELETE
-  get('/delete_feedback/:id', { :controller => 'feedbacks', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Request resource:
-  # CREATE
-  get('/requests/new', { :controller => 'requests', :action => 'new' })
-  get('/create_request', { :controller => 'requests', :action => 'create' })
-
-  # READ
-  get('/requests', { :controller => 'requests', :action => 'index' })
-  get('/requests/:id', { :controller => 'requests', :action => 'show' })
-
-  # UPDATE
-  get('/requests/:id/edit', { :controller => 'requests', :action => 'edit' })
-  get('/update_request/:id', { :controller => 'requests', :action => 'update' })
-
-  # DELETE
-  get('/delete_request/:id', { :controller => 'requests', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Interaction resource:
-  # CREATE
-  get('/interactions/new', { :controller => 'interactions', :action => 'new' })
-  get('/create_interaction', { :controller => 'interactions', :action => 'create' })
-
-  # READ
-  get('/interactions', { :controller => 'interactions', :action => 'index' })
-  get('/interactions/:id', { :controller => 'interactions', :action => 'show' })
-
-  # UPDATE
-  get('/interactions/:id/edit', { :controller => 'interactions', :action => 'edit' })
-  get('/update_interaction/:id', { :controller => 'interactions', :action => 'update' })
-
-  # DELETE
-  get('/delete_interaction/:id', { :controller => 'interactions', :action => 'destroy' })
   #------------------------------
 
   # Routes for the Goal resource:

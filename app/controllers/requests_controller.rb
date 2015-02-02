@@ -1,54 +1,47 @@
 class RequestsController < ApplicationController
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
   def index
     @requests = Request.all
+    respond_with(@requests)
   end
 
   def show
-    @request = Request.find(params[:id])
+    respond_with(@request)
   end
 
   def new
     @request = Request.new
-  end
-
-  def create
-    @request = Request.new
-    @request.requester_id = params[:requester_id]
-    @request.requested_id = params[:requested_id]
-    @request.goal_id = params[:goal_id]
-    @request.interaction_id = params[:interaction_id]
-
-    if @request.save
-      redirect_to "/requests", :notice => "Request created successfully."
-    else
-      render 'new'
-    end
+    respond_with(@request)
   end
 
   def edit
-    @request = Request.find(params[:id])
+  end
+
+  def create
+    @request = Request.new(request_params)
+    @request.save
+    respond_with(@request)
   end
 
   def update
-    @request = Request.find(params[:id])
-
-    @request.requester_id = params[:requester_id]
-    @request.requested_id = params[:requested_id]
-    @request.goal_id = params[:goal_id]
-    @request.interaction_id = params[:interaction_id]
-
-    if @request.save
-      redirect_to "/requests", :notice => "Request updated successfully."
-    else
-      render 'edit'
-    end
+    @request.update(request_params)
+    respond_with(@request)
   end
 
   def destroy
-    @request = Request.find(params[:id])
-
     @request.destroy
-
-    redirect_to "/requests", :notice => "Request deleted."
+    respond_with(@request)
   end
+
+  private
+    def set_request
+      @request = Request.find(params[:id])
+    end
+
+    def request_params
+      params.require(:request).permit(:requestor_id, :requestee_id, :interaction_id, :goal_id, :feedback_note, :feedback_completed)
+    end
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  interaction_title: MyString
+  interaction_date: 2015-02-02 15:53:26
+  interaction_notes: MyText
+
+two:
+  user_id: 1
+  interaction_title: MyString
+  interaction_date: 2015-02-02 15:53:26
+  interaction_notes: MyText
