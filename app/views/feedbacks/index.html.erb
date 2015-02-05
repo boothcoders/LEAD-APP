@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Enterer</th>
       <th>Enteree</th>
       <th>Goal</th>
       <th>Interaction</th>
@@ -20,10 +19,9 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <tr>
-        <td><%= feedback.enterer_id %></td>
-        <td><%= feedback.enteree_id %></td>
-        <td><%= feedback.goal_id %></td>
-        <td><%= feedback.interaction_id %></td>
+        <td><%= feedback.enteree.first_name %> <%= feedback.enteree.last_name %></td>
+        <td><%= feedback.goal_attempt %></td>
+        <td><%= feedback.interaction.interaction_title %></td>
         <td><%= feedback.entry_date %></td>
         <td><%= feedback.entry_note %></td>
         <td><%= feedback.entry_rating %></td>
