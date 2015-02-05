@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  goal_id: 1
+  started_on: 2015-02-05 15:59:11
+  ended_on: 2015-02-05 15:59:11
+
+two:
+  user_id: 1
+  goal_id: 1
+  started_on: 2015-02-05 15:59:11
+  ended_on: 2015-02-05 15:59:11

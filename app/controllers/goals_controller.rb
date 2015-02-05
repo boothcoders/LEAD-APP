@@ -1,54 +1,47 @@
 class GoalsController < ApplicationController
+  before_action :set_goal, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
   def index
     @goals = Goal.all
+    respond_with(@goals)
   end
 
   def show
-    @goal = Goal.find(params[:id])
+    respond_with(@goal)
   end
 
   def new
     @goal = Goal.new
-  end
-
-  def create
-    @goal = Goal.new
-    @goal.user_id = params[:user_id]
-    @goal.starts_on = params[:starts_on]
-    @goal.ends_on = params[:ends_on]
-    @goal.description = params[:description]
-
-    if @goal.save
-      redirect_to "/goals", :notice => "Goal created successfully."
-    else
-      render 'new'
-    end
+    respond_with(@goal)
   end
 
   def edit
-    @goal = Goal.find(params[:id])
+  end
+
+  def create
+    @goal = Goal.new(goal_params)
+    @goal.save
+    respond_with(@goal)
   end
 
   def update
-    @goal = Goal.find(params[:id])
-
-    @goal.user_id = params[:user_id]
-    @goal.starts_on = params[:starts_on]
-    @goal.ends_on = params[:ends_on]
-    @goal.description = params[:description]
-
-    if @goal.save
-      redirect_to "/goals", :notice => "Goal updated successfully."
-    else
-      render 'edit'
-    end
+    @goal.update(goal_params)
+    respond_with(@goal)
   end
 
   def destroy
-    @goal = Goal.find(params[:id])
-
     @goal.destroy
-
-    redirect_to "/goals", :notice => "Goal deleted."
+    respond_with(@goal)
   end
+
+  private
+    def set_goal
+      @goal = Goal.find(params[:id])
+    end
+
+    def goal_params
+      params.require(:goal).permit(:goal_name, :goal_description)
+    end
 end

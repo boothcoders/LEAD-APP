@@ -1,48 +1,47 @@
 class CohortsController < ApplicationController
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
   def index
     @cohorts = Cohort.all
+    respond_with(@cohorts)
   end
 
   def show
-    @cohort = Cohort.find(params[:id])
+    respond_with(@cohort)
   end
 
   def new
     @cohort = Cohort.new
-  end
-
-  def create
-    @cohort = Cohort.new
-    @cohort.name = params[:name]
-
-    if @cohort.save
-      redirect_to "/cohorts", :notice => "Cohort created successfully."
-    else
-      render 'new'
-    end
+    respond_with(@cohort)
   end
 
   def edit
-    @cohort = Cohort.find(params[:id])
+  end
+
+  def create
+    @cohort = Cohort.new(cohort_params)
+    @cohort.save
+    respond_with(@cohort)
   end
 
   def update
-    @cohort = Cohort.find(params[:id])
-
-    @cohort.name = params[:name]
-
-    if @cohort.save
-      redirect_to "/cohorts", :notice => "Cohort updated successfully."
-    else
-      render 'edit'
-    end
+    @cohort.update(cohort_params)
+    respond_with(@cohort)
   end
 
   def destroy
-    @cohort = Cohort.find(params[:id])
-
     @cohort.destroy
-
-    redirect_to "/cohorts", :notice => "Cohort deleted."
+    respond_with(@cohort)
   end
+
+  private
+    def set_cohort
+      @cohort = Cohort.find(params[:id])
+    end
+
+    def cohort_params
+      params.require(:cohort).permit(:user_id, :cohort_name)
+    end
 end

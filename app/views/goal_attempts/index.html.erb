@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Goal Attempts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Goal</th>
+      <th>Started on</th>
+      <th>Ended on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goal_attempts.each do |goal_attempt| %>
+      <tr>
+        <td><%= goal_attempt.user_id %></td>
+        <td><%= goal_attempt.goal_id %></td>
+        <td><%= goal_attempt.started_on %></td>
+        <td><%= goal_attempt.ended_on %></td>
+        <td><%= link_to 'Show', goal_attempt %></td>
+        <td><%= link_to 'Edit', edit_goal_attempt_path(goal_attempt) %></td>
+        <td><%= link_to 'Destroy', goal_attempt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Goal attempt', new_goal_attempt_path %>

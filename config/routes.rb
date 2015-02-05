@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :goal_attempts
+
+  resources :goals
+
+  resources :cohorts
+
   devise_for :users
   resources :users
 
@@ -9,57 +15,6 @@ Rails.application.routes.draw do
   resources :interactions
 
   root 'feedbacks#index'
-  # Routes for the Experiment resource:
-  # CREATE
-  get('/experiments/new', { :controller => 'experiments', :action => 'new' })
-  get('/create_experiment', { :controller => 'experiments', :action => 'create' })
-
-  # READ
-  get('/experiments', { :controller => 'experiments', :action => 'index' })
-  get('/experiments/:id', { :controller => 'experiments', :action => 'show' })
-
-  # UPDATE
-  get('/experiments/:id/edit', { :controller => 'experiments', :action => 'edit' })
-  get('/update_experiment/:id', { :controller => 'experiments', :action => 'update' })
-
-  # DELETE
-  get('/delete_experiment/:id', { :controller => 'experiments', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Goal resource:
-  # CREATE
-  get('/goals/new', { :controller => 'goals', :action => 'new' })
-  get('/create_goal', { :controller => 'goals', :action => 'create' })
-
-  # READ
-  get('/goals', { :controller => 'goals', :action => 'index' })
-  get('/goals/:id', { :controller => 'goals', :action => 'show' })
-
-  # UPDATE
-  get('/goals/:id/edit', { :controller => 'goals', :action => 'edit' })
-  get('/update_goal/:id', { :controller => 'goals', :action => 'update' })
-
-  # DELETE
-  get('/delete_goal/:id', { :controller => 'goals', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Cohort resource:
-  # CREATE
-  get('/cohorts/new', { :controller => 'cohorts', :action => 'new' })
-  get('/create_cohort', { :controller => 'cohorts', :action => 'create' })
-
-  # READ
-  get('/cohorts', { :controller => 'cohorts', :action => 'index' })
-  get('/cohorts/:id', { :controller => 'cohorts', :action => 'show' })
-
-  # UPDATE
-  get('/cohorts/:id/edit', { :controller => 'cohorts', :action => 'edit' })
-  get('/update_cohort/:id', { :controller => 'cohorts', :action => 'update' })
-
-  # DELETE
-  get('/delete_cohort/:id', { :controller => 'cohorts', :action => 'destroy' })
-  #------------------------------
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

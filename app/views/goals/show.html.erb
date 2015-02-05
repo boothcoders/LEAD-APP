@@ -1,90 +1,14 @@
-<!-- Simple full-width example-->
+<p id="notice"><%= notice %></p>
 
-<div class="page-header">
-  <h1>Goal #<%= @goal.id %></h1>
-</div>
+<p>
+  <strong>Goal name:</strong>
+  <%= @goal.goal_name %>
+</p>
 
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @goal.user_id %></dd>
+<p>
+  <strong>Goal description:</strong>
+  <%= @goal.goal_description %>
+</p>
 
-      <dt>Starts on</dt>
-      <dd><%= @goal.starts_on %></dd>
-
-      <dt>Ends on</dt>
-      <dd><%= @goal.ends_on %></dd>
-
-      <dt>Description</dt>
-      <dd><%= @goal.description %></dd>
-
-      <dt></dt>
-      <dd>
-        <div class="btn-group">
-          <a href="/goals" class="btn btn-primary">
-            <i class="fa fa-chevron-left"></i>
-          </a>
-
-          <a href="/goals/<%= @goal.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_goal/<%= @goal.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-      </dd>
-    </dl>
-
-  </div>
-</div>
-
-<!-- End simple full-width example-->
-
-<!-- Responsive panel example-->
-
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Goal #<%= @goal.id %></h3>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <dl class="dl-horizontal">
-              <dt>User</dt>
-              <dd><%= @goal.user_id %></dd>
-
-              <dt>Starts on</dt>
-              <dd><%= @goal.starts_on %></dd>
-
-              <dt>Ends on</dt>
-              <dd><%= @goal.ends_on %></dd>
-
-              <dt>Description</dt>
-              <dd><%= @goal.description %></dd>
-
-            </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/goals" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
-
-              <a href="/goals/<%= @goal.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-
-              <a href="/delete_goal/<%= @goal.id %>" class="btn btn-danger">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End responsive panel example -->
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

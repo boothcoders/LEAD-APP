@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @goal_attempt.user_id %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @goal_attempt.goal_id %>
+</p>
+
+<p>
+  <strong>Started on:</strong>
+  <%= @goal_attempt.started_on %>
+</p>
+
+<p>
+  <strong>Ended on:</strong>
+  <%= @goal_attempt.ended_on %>
+</p>
+
+<%= link_to 'Edit', edit_goal_attempt_path(@goal_attempt) %> |
+<%= link_to 'Back', goal_attempts_path %>

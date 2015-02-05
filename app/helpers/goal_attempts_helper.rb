@@ -1,0 +1,2 @@
+module GoalAttemptsHelper
+end
