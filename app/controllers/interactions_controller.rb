@@ -1,58 +1,47 @@
 class InteractionsController < ApplicationController
+  before_action :set_interaction, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
   def index
     @interactions = Interaction.all
+    respond_with(@interactions)
   end
 
   def show
-    @interaction = Interaction.find(params[:id])
+    respond_with(@interaction)
   end
 
   def new
     @interaction = Interaction.new
-  end
-
-  def create
-    @interaction = Interaction.new
-    @interaction.user_id = params[:user_id]
-    @interaction.occurs_on = params[:occurs_on]
-    @interaction.occurs_at = params[:occurs_at]
-    @interaction.goal_id = params[:goal_id]
-    @interaction.description = params[:description]
-    @interaction.experiment_id = params[:experiment_id]
-
-    if @interaction.save
-      redirect_to "/interactions", :notice => "Interaction created successfully."
-    else
-      render 'new'
-    end
+    respond_with(@interaction)
   end
 
   def edit
-    @interaction = Interaction.find(params[:id])
+  end
+
+  def create
+    @interaction = Interaction.new(interaction_params)
+    @interaction.save
+    respond_with(@interaction)
   end
 
   def update
-    @interaction = Interaction.find(params[:id])
-
-    @interaction.user_id = params[:user_id]
-    @interaction.occurs_on = params[:occurs_on]
-    @interaction.occurs_at = params[:occurs_at]
-    @interaction.goal_id = params[:goal_id]
-    @interaction.description = params[:description]
-    @interaction.experiment_id = params[:experiment_id]
-
-    if @interaction.save
-      redirect_to "/interactions", :notice => "Interaction updated successfully."
-    else
-      render 'edit'
-    end
+    @interaction.update(interaction_params)
+    respond_with(@interaction)
   end
 
   def destroy
-    @interaction = Interaction.find(params[:id])
-
     @interaction.destroy
-
-    redirect_to "/interactions", :notice => "Interaction deleted."
+    respond_with(@interaction)
   end
+
+  private
+    def set_interaction
+      @interaction = Interaction.find(params[:id])
+    end
+
+    def interaction_params
+      params.require(:interaction).permit(:user_id, :interaction_title, :interaction_date, :interaction_notes)
+    end
 end

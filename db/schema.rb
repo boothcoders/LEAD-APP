@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121203411) do
+ActiveRecord::Schema.define(version: 20150202165756) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
@@ -28,15 +28,16 @@ ActiveRecord::Schema.define(version: 20150121203411) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer  "writer_id"
-    t.integer  "receiver_id"
+    t.integer  "enterer_id"
+    t.integer  "enteree_id"
     t.integer  "goal_id"
     t.integer  "interaction_id"
+    t.datetime "entry_date"
+    t.text     "entry_note"
+    t.integer  "entry_rating"
     t.integer  "request_id"
-    t.text     "qualitative_fb"
-    t.integer  "quantitative_fb"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "goals", force: :cascade do |t|
@@ -50,25 +51,30 @@ ActiveRecord::Schema.define(version: 20150121203411) do
 
   create_table "interactions", force: :cascade do |t|
     t.integer  "user_id"
-    t.date     "occurs_on"
-    t.time     "occurs_at"
-    t.integer  "goal_id"
-    t.string   "description"
-    t.integer  "experiment_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "interaction_title"
+    t.datetime "interaction_date"
+    t.text     "interaction_notes"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer  "requester_id"
-    t.integer  "requested_id"
-    t.integer  "goal_id"
+    t.integer  "requestor_id"
+    t.integer  "requestee_id"
     t.integer  "interaction_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "goal_id"
+    t.text     "feedback_note"
+    t.boolean  "feedback_completed"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "cohort_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -79,10 +85,6 @@ ActiveRecord::Schema.define(version: 20150121203411) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "username"
-    t.string   "avatar_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
