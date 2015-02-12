@@ -261,158 +261,158 @@ goal_attempt = [
 {
   :user_id => 1,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 2,
   :goal_id => 1,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 3,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 4,
   :goal_id => 5,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 5,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 6,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 7,
   :goal_id => 4,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 8,
   :goal_id => 4,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 9,
   :goal_id => 1,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 10,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 11,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 12,
   :goal_id => 6,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 13,
   :goal_id => 6,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 14,
   :goal_id => 1,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 15,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 16,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 17,
   :goal_id => 5,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 18,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 19,
   :goal_id => 2,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 20,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 21,
   :goal_id => 1,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 22,
   :goal_id => 4,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 23,
   :goal_id => 3,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 24,
   :goal_id => 6,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 25,
   :goal_id => 5,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 },
 {
   :user_id => 26,
   :goal_id => 4,
-  :started_on => 20150101,
-  :ended_on => 20160101
+  :started_on => DateTime.parse("01/01/2015"),
+  :ended_on => DateTime.parse("01/01/2016")
 }
 ]
 
@@ -434,43 +434,43 @@ interaction = [
 {
   :user_id => 1,
   :interaction_title => "App D Session",
-  :interaction_date => 20150202,
+  :interaction_date => DateTime.parse("02/02/2015"),
   :interaction_notes => "Good times were had"
 },
 {
   :user_id => 1,
   :interaction_title => "Goolsbee Discussion",
-  :interaction_date => 20150203,
+  :interaction_date => DateTime.parse("02/03/2015"),
   :interaction_notes => "Hungover"
 },
 {
   :user_id => 1,
   :interaction_title => "ICEE work",
-  :interaction_date => 20150203,
+  :interaction_date => DateTime.parse("02/03/2015"),
   :interaction_notes => "Caffeinated - fully engaged"
 },
 {
   :user_id => 2,
   :interaction_title => "App D Session",
-  :interaction_date => 20150202,
+  :interaction_date => DateTime.parse("02/02/2015"),
   :interaction_notes => "Had to leave early - other meeting"
 },
 {
   :user_id => 2,
   :interaction_title => "Cubs Game",
-  :interaction_date => 20150202,
+  :interaction_date => DateTime.parse("02/02/2015"),
   :interaction_notes => "Cubs lost"
 },
 {
   :user_id => 3,
   :interaction_title => "Cubs Game",
-  :interaction_date => 20150202,
+  :interaction_date => DateTime.parse("02/02/2015"),
   :interaction_notes => "Cubs lost"
 },
 {
   :user_id => 3,
   :interaction_title => "BRIO Session",
-  :interaction_date => 20150203,
+  :interaction_date => DateTime.parse("02/03/2015"),
   :interaction_notes => "Overall well - had to deal with a phone call halfway through though"
 }
 ]

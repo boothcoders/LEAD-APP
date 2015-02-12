@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
-  resources :goal_attempts
-
-  resources :goals
-
-  resources :cohorts
-
   devise_for :users
+
+  root 'static_pages#home'
+
+  resources :goal_attempts
+  resources :goals
+  resources :cohorts
   resources :users
-
   resources :feedbacks
-
   resources :requests
-
   resources :interactions
 
-  root 'feedbacks#index'
+  get "new_interaction" => "interactions#new"
+  get "new_feedback_request" => "requests#new"
+  get "new_feedback_give" => "feedbacks#new"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
