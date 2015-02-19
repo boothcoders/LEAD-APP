@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   belongs_to :cohort
   has_many :interactions
-  has_many :goal_attempts
+  belongs_to :goal_attempt
   
 end

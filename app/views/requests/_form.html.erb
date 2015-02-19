@@ -10,16 +10,16 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :interaction_id %>
-    <%= select_tag(:interaction_id, options_from_collection_for_select(Interaction.all, :id, :interaction_title), :class => "form-control") %>
+  <!--<div class="field">-->
+    <!--<%= f.label :interaction_id %>-->
+    <!--<%= select_tag(:interaction_id, options_from_collection_for_select(Interaction.all, :id, :interaction_title), :class => "form-control") %>-->
     
-    <%= f.label :requestee_id %>
-    <select class="selectpicker" multiple>
-      <% User.all.each do |user| %>
-        <option><%=user.first_name%> <%=user.last_name%></option>
-      <% end %>
-    </select>
+    <!--<%= f.label :requestee_id %>-->
+    <!--<select class="selectpicker" multiple>-->
+    <!--  <% User.all.each do |user| %>-->
+    <!--    <option><%=user.first_name%> <%=user.last_name%></option>-->
+    <!--  <% end %>-->
+    <!--</select>-->
     
     
     
@@ -28,31 +28,34 @@
     <!--<%= select_tag(:requesstee_id, options_from_collection_for_select(Interaction.all, :id, :interaction_title), :class => "form-control") %>-->
     
     
+  <!--</div>-->
+  <div class="field">
+    <%= f.hidden_field :requestor_id, :value => current_user.id %><br>
+    <!--<%= hidden_field_tag current_user.id %>-->
+  </div>
+  <div class="field">
+    <%= f.label :requestee_id %><br>
+    <!--<%= f.number_field :requestee_id %>-->
+    <%= f.collection_select(:requestee_id, User.all, :id, :last_name) %>
+  </div>
+  <!--http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select   LOOK AT THIS FOR MULTIPLE SELECT-->
+  <div class="field">
+    <%= f.label :interaction_id %><br>
+    <%= f.collection_select(:interaction_id, current_user.interactions, :id, :interaction_title) %>
   </div>
   <!--<div class="field">-->
-  <!--  <%= f.label :requestor_id %><br>-->
-  <!--  <%= f.number_field :requestor_id %>-->
+    <!--<%= f.hidden_field :goal_id, :value => current_user.goal_attempt %><br>-->
+    <!--<%= f.number_field :goal_id %>-->
   <!--</div>-->
-  <!--<div class="field">-->
-  <!--  <%= f.label :requestee_id %><br>-->
-  <!--  <%= f.number_field :requestee_id %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-  <!--  <%= f.label :interaction_id %><br>-->
-  <!--  <%= f.number_field :interaction_id %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-  <!--  <%= f.label :goal_id %><br>-->
-  <!--  <%= f.number_field :goal_id %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-  <!--  <%= f.label :feedback_note %><br>-->
-  <!--  <%= f.text_area :feedback_note %>-->
-  <!--</div>-->
-  <!--<div class="field">-->
-  <!--  <%= f.label :feedback_completed %><br>-->
-  <!--  <%= f.check_box :feedback_completed %>-->
-  <!--</div>-->
+  <div class="field">
+    <%= f.label :feedback_note %><br>
+    <%= f.text_area :feedback_note %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :feedback_completed, :value => 0 %><br>
+    <!--<%= f.label :feedback_completed %><br>-->
+    <!--<%= f.check_box :feedback_completed %>-->
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
