@@ -12,16 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :enterer_id %><br>
-    <%= f.number_field :enterer_id %>
+    <%= f.hidden_field :enterer_id, :value => current_user.id %><br>
   </div>
   <div class="field">
     <%= f.label :enteree_id %><br>
-    <%= f.number_field :enteree_id %>
+    <%= f.collection_select(:enteree_id, User.where.not(:id => current_user.id), :id, :last_name) %>
   </div>
   <div class="field">
-    <%= f.label :goal_id %><br>
-    <%= f.number_field :goal_id %>
+  <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
+    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.goal_name %><br>
   </div>
   <div class="field">
     <%= f.label :interaction_id %><br>
@@ -39,11 +38,15 @@
     <%= f.label :entry_rating %><br>
     <%= f.number_field :entry_rating %>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :request_id %><br>
     <%= f.number_field :request_id %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<% #TODO update so that we can pull up the proper interactions? %>
+<% #TODO automatically tie to the proper request where valid %>
+<% #TODO Fix goal entry %>

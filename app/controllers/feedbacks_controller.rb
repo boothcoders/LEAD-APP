@@ -14,6 +14,7 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+
     respond_with(@feedback)
   end
 
