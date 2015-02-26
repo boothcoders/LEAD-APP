@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :interaction_id %><br>
-    <%= f.number_field :interaction_id %>
+    <%= f.collection_select(:interaction_id, Interaction.all, :id, :interaction_title) %>
   </div>
   <div class="field">
     <%= f.label :entry_date %><br>

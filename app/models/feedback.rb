@@ -5,7 +5,7 @@ class Feedback < ActiveRecord::Base
     belongs_to :goal_attempt
     belongs_to :interaction
 
-    after_validation :update_requests
+    # after_validation :update_requests
 
     # def update_requests
     #   if Request.find_by(:requestor_id => current_user.id).present?
