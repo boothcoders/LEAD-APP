@@ -14,17 +14,19 @@
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %><br>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :interaction_title %><br>
-    <%= f.text_field :interaction_title %>
+    <%= f.text_field :interaction_title, class: "form-control", placeholder: "Enter Title Here" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :interaction_date %><br>
-    <%= f.datetime_select :interaction_date %>
+    <% Time.use_zone("Central Time (US & Canada)") do %>
+      <%= f.datetime_select :interaction_date, class: "form-control" %>
+    <% end %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :interaction_notes %><br>
-    <%= f.text_area :interaction_notes %>
+    <%= f.text_area :interaction_notes, class: "form-control", placeholder: "Enter Notes Here", rows: 3 %>
   </div>
   <div class="actions">
     <%= f.submit %>
