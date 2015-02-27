@@ -15,12 +15,16 @@
     <%= f.hidden_field :enterer_id, :value => current_user.id %><br>
   </div>
   <div class="field">
+    
+  </div>
+  <div class="field">
+    <%= Request.find_by(:id => @request) %>
     <%= f.label :enteree_id %><br>
     <%= f.collection_select(:enteree_id, User.where.not(:id => current_user.id), :id, :last_name) %>
   </div>
   <div class="field">
   <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
-    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.goal_name %><br>
+    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.id %><br>
   </div>
   <div class="field">
     <%= f.label :interaction_id %><br>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :interactions
 
   get "new_interaction" => "interactions#new"
+  get "interactions_list_path" => "interactions#index"
   get "new_feedback_request" => "requests#new"
   get "feedback_give" => "requests#index"
   get "new_feedback_give" => "feedbacks#new"
