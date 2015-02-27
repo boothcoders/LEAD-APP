@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "new_interaction" => "interactions#new"
   get "new_feedback_request" => "requests#new"
+  get "feedback_give" => "requests#index"
   get "new_feedback_give" => "feedbacks#new"
 
 

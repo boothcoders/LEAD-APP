@@ -33,24 +33,24 @@
     <%= f.hidden_field :requestor_id, :value => current_user.id %><br>
     <!--<%= hidden_field_tag current_user.id %>-->
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :requestee_id %><br>
     <!--<%= f.number_field :requestee_id %>-->
-    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name) %>
+    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name, { :class => "form-control" }) %>
   </div>
   <!--http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select   LOOK AT THIS FOR MULTIPLE SELECT-->
   <div class="field">
     <%= f.label :interaction_id %><br>
-    <%= f.collection_select(:interaction_id, current_user.interactions, :id, :interaction_title) %>
+    <%= f.collection_select(:interaction_id, current_user.interactions, :id, :interaction_title, {:selected => current_user.interactions.last.id, :class => "form-control" }) %>
   </div>
   <div class="field">
   <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
-    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.goal_name %><br>
+    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.id %><br>
 <!--     <%= f.number_field :goal_id %> -->
   </div>
   <div class="field">
     <%= f.label :feedback_note %><br>
-    <%= f.text_area :feedback_note %>
+    <%= f.text_area :feedback_note, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.hidden_field :feedback_completed, :value => 0 %><br>
@@ -58,7 +58,7 @@
     <!--<%= f.check_box :feedback_completed %>-->
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success" %>
   </div>
 <% end %>
 

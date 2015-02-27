@@ -23,6 +23,7 @@ class InteractionsController < ApplicationController
   def create
     @interaction = Interaction.new(interaction_params)
     @interaction.save
+    flash[:notice] = "You successfully created a new interaction."
     respond_with(@interaction)
   end
 

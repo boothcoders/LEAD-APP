@@ -1,34 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h2>Request from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %> to provide feedback about <%= @request.interaction.interaction_title %> from <%= @request.interaction.interaction_date.to_date %></h2>
 
 <p>
-  <strong>Requestor:</strong>
-  <%= @request.requestor_id %>
-</p>
-
-<p>
-  <strong>Requestee:</strong>
-  <%= @request.requestee_id %>
-</p>
-
-<p>
-  <strong>Interaction:</strong>
-  <%= @request.interaction_id %>
-</p>
-
-<p>
-  <strong>Goal:</strong>
-  <%= @request.goal_id %>
-</p>
-
-<p>
-  <strong>Feedback note:</strong>
+  <strong>Notes from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %>:</strong>
   <%= @request.feedback_note %>
+  
 </p>
 
-<p>
-  <strong>Feedback completed:</strong>
-  <%= @request.feedback_completed %>
-</p>
+<p id="notice"><%= notice %></p>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
+                <%= link_to "Give feedback", '/feedbacks/new/', :type => "button", :class => "btn btn-default btn-success", :style => "white-space: normal" %>
+                <%= link_to "Decline to give feedback", new_feedback_request_path, :type => "button", :class => "btn btn-default btn-danger", :style => "white-space: normal" %>
+            </div>
+        </div>
+    </div>
 
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>
