@@ -20,15 +20,14 @@
     <!--    <option><%=user.first_name%> <%=user.last_name%></option>-->
     <!--  <% end %>-->
     <!--</select>-->
-
-
-
-
     <!--Need to add hash so that creates many requests at once-->
     <!--<%= select_tag(:requesstee_id, options_from_collection_for_select(Interaction.all, :id, :interaction_title), :class => "form-control") %>-->
 
-
   <!--</div>-->
+  
+  <% if @interaction_id %>
+    <h2>feedback on <%= Interaction.find_by(:id=> @interaction_id).interaction_title%> on <%= Interaction.find_by(:id=> @interaction_id).interaction_date.to_date%></h2>
+  <% end %>
   <div class="field">
     <%= f.hidden_field :requestor_id, :value => current_user.id %><br>
     <!--<%= hidden_field_tag current_user.id %>-->
@@ -39,10 +38,14 @@
     <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name, { :class => "form-control" }) %>
   </div>
   <!--http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select   LOOK AT THIS FOR MULTIPLE SELECT-->
-  <div class="field">
-    <%= f.label :interaction_id %><br>
-    <%= f.collection_select(:interaction_id, current_user.interactions, :id, :interaction_title, {:selected => current_user.interactions.last.id, :class => "form-control" }) %>
-  </div>
+  <% if @interaction_id %>
+    <%= f.hidden_field :interaction_id, :value => @interaction_id %><br>
+  <% else %>
+    <div class="field">
+      <%= f.label :interaction_id %><br>
+      <%= f.collection_select(:interaction_id, current_user.interactions, :id, :interaction_title, {:selected => current_user.interactions.last.id, :class => "form-control" }) %>
+    </div>
+  <% end %>
   <div class="field">
   <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
     <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.id %><br>

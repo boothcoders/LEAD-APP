@@ -2,7 +2,6 @@
   <% if @feedback.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
-
       <ul>
       <% @feedback.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,36 +9,20 @@
       </ul>
     </div>
   <% end %>
-
+  <h3>Feedback notes: <%=Request.find_by(:id => @request).feedback_note%></h3>
   <div class="field">
     <%= f.hidden_field :enterer_id, :value => current_user.id %><br>
-  </div>
-  <div class="field">
-    
-  </div>
-  <div class="field">
-    <%= Request.find_by(:id => @request) %>
-    <%= f.label :enteree_id %><br>
-    <%= f.collection_select(:enteree_id, User.where.not(:id => current_user.id), :id, :last_name) %>
-  </div>
-  <div class="field">
-  <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
-    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.first.goal.id %><br>
-  </div>
-  <div class="field">
-    <%= f.label :interaction_id %><br>
-    <%= f.collection_select(:interaction_id, Interaction.all, :id, :interaction_title) %>
-  </div>
-  <div class="field">
-    <%= f.label :entry_date %><br>
-    <%= f.datetime_select :entry_date %>
+    <%= f.hidden_field :enteree_id, :value => Request.find_by(:id => @request).requestor.id %><br>
+    <%= f.hidden_field :goal_id, :value => '1' %><br> <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
+    <%= f.hidden_field :interaction_id, :value => Request.find_by(:id => @request).interaction.id %><br>
+    <%= f.hidden_field :request_id, :value => Request.find_by(:id => @request).id %><br>
   </div>
   <div class="field">
     <%= f.label :entry_note %><br>
     <%= f.text_area :entry_note %>
   </div>
   <div class="field">
-    <%= f.label :entry_rating %><br>
+    <%= f.label "Please rate from 1 to 3 where 1 is 'below average', 2 is 'average', and 3 is 'above average'" %><br>
     <%= f.number_field :entry_rating %>
   </div>
 <!--   <div class="field">

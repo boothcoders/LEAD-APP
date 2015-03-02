@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
-      <%= link_to "Request Feedback", new_feedback_request_path, :type => "button", :class => "btn btn-success", :style => "white-space: normal" %>
+      <%= link_to "Request Feedback", new_feedback_request_path(:interaction_id => @interaction.id), :type => "button", :class => "btn btn-success", :style => "white-space: normal" %>
       <%= link_to "Edit this Interaction", edit_interaction_path(@interaction), :type => "button", :class => "btn btn-warning", :style => "white-space: normal" %>
       <%= link_to "Home Page", root_path, :type => "button", :class => "btn btn-default", :style => "white-space: normal" %>
     </div>

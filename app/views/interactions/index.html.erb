@@ -18,7 +18,7 @@
           <td><%= interaction.interaction_date.strftime("%b %e") %></td>
           <td><%= interaction.interaction_notes %></td>
           <td><%= link_to '<i class="fa fa-search btn btn-info"></i>'.html_safe, interaction %></td>
-          <td><%= link_to '<i class="fa fa-user-plus btn btn-success"></i>'.html_safe, "/requests/new" %></td>
+          <td><%= link_to '<i class="fa fa-user-plus btn btn-success"></i>'.html_safe, new_feedback_request_path(:interaction_id => interaction.id) %></td>
         </tr>
       <% end %>
     <% end %>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Interaction', new_interaction_path %>
+<%= link_to 'New Interaction', new_interaction_path, class: "btn btn-success" %>

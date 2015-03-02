@@ -5,59 +5,21 @@
     <tr>
       <th>From</th>
       <th colspan="2">Interaction</th>
-      <th>Goal</th>
       <th>Feedback note</th>
-      <th>Feedback completed</th>
+      <th>Complete feedback</th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @requests.each do |request| %>
-      <% if request.requestee_id == current_user.id %>
+      <% if request.requestee_id == current_user.id and !request.feedback_completed %>
         <tr>
           <td><%= "#{request.requestor.first_name} #{request.requestor.last_name}" %></td>
           <td><%= request.interaction.interaction_title %></td>
           <td><%= request.interaction.interaction_date.strftime("%b %e") %></td>
-          <td><%= request.goal_id %></td>
           <td><%= request.feedback_note %></td>
-          <td><%= request.feedback_completed %></td>
-          <td><%= link_to 'Show', request %></td>
-        </tr>
-      <% end %> 
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<h1>Sent Requests</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Sent To</th>
-      <th colspan="2">Interaction</th>
-      <th>Goal</th>
-      <th>Feedback note</th>
-      <th>Feedback completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @requests.each do |request| %>
-      <% if request.requestor_id == current_user.id %>
-        <tr>
-          <td><%= "#{request.requestee.first_name} #{request.requestee.last_name}" %></td>
-          <td><%= request.interaction.interaction_title %></td>
-          <td><%= request.interaction.interaction_date.strftime("%b %e") %></td>
-          <td><%= request.goal_id %></td>
-          <td><%= request.feedback_note %></td>
-          <td><%= request.feedback_completed %></td>
-          <td><%= link_to 'Show', request %></td>
-          <td><%= link_to 'Edit', edit_request_path(request) %></td>
-          <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '<i class="fa fa-user-plus btn btn-success"></i>'.html_safe, request %></td>
         </tr>
       <% end %> 
     <% end %>

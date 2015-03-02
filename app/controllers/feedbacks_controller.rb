@@ -25,6 +25,9 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
     @feedback.save
+    @request = Request.find_by(:id=>@feedback.request_id)
+    @request.feedback_completed = 'TRUE'
+    @request.save
     respond_with(@feedback)
   end
 

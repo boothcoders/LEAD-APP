@@ -1,30 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Enterer:</strong>
-  <%= @feedback.enterer_id %>
-</p>
-
-<p>
-  <strong>Enteree:</strong>
-  <%= @feedback.enteree_id %>
-</p>
-
-<p>
-  <strong>Goal:</strong>
-  <%= @feedback.goal_id %>
-</p>
-
-<p>
-  <strong>Interaction:</strong>
-  <%= @feedback.interaction_id %>
-</p>
-
-<p>
-  <strong>Entry date:</strong>
-  <%= @feedback.entry_date %>
-</p>
-
+<h1>Thanks! Feedback complete for <%= @feedback.enteree.first_name %> <%= @feedback.enteree.last_name %> for <%= @feedback.interaction.interaction_title %></h1>
 <p>
   <strong>Entry note:</strong>
   <%= @feedback.entry_note %>
@@ -34,11 +10,12 @@
   <strong>Entry rating:</strong>
   <%= @feedback.entry_rating %>
 </p>
-
-<p>
-  <strong>Request:</strong>
-  <%= @feedback.request_id %>
-</p>
-
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
+            <%= link_to "Select new feedback request", feedback_give_path, :type => "button", :class => "btn btn-default btn-success", :style => "white-space: normal" %>
+        </div>
+    </div>
+</div>
 <%= link_to 'Edit', edit_feedback_path(@feedback) %> |
 <%= link_to 'Back', feedbacks_path %>

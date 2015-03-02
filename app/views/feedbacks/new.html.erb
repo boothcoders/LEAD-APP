@@ -1,5 +1,4 @@
-<h1>New Feedback</h1>
-<h2>Request = <%= @request %></h2>
+<h1>Feedback for <%= Request.find_by(:id=>@request).requestor.first_name %> <%= Request.find_by(:id=>@request).requestor.last_name %> for <%= Request.find_by(:id=>@request).interaction.interaction_title  %> on <%= Request.find_by(:id=>@request).interaction.interaction_date.to_date  %></h1>
 
 <%= render 'form' %>
 

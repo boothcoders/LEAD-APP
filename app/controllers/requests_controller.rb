@@ -15,6 +15,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @interaction_id = params[:interaction_id]
     respond_with(@request)
   end
 
@@ -36,7 +37,15 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
-
+  
+  def decline
+    declined_request = Request.find_by(:id => params[:request])
+    declined_request.destroy
+    
+    @requests = Request.all
+    respond_with(@requests)
+  end
+  
   private
     def set_request
       @request = Request.find(params[:id])

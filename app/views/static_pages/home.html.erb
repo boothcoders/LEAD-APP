@@ -7,14 +7,12 @@
         <p></p>
     </div>
 
-
-
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
                 <%= link_to "I had a Meeting", new_interaction_path, :type => "button", :class => "btn btn-default btn-success", :style => "white-space: normal" %>
                 <%= link_to "I want to Request Feedback", "/interactions", :type => "button", :class => "btn btn-default btn-danger", :style => "white-space: normal" %>
-                <%= link_to "I want to Give Feedback", new_feedback_give_path, :type => "button", :class => "btn btn-default btn-warning", :style => "white-space: normal" %>
+                <%= link_to "I want to Give Feedback", feedback_give_path, :type => "button", :class => "btn btn-default btn-warning", :style => "white-space: normal" %>
             </div>
         </div>
     </div>

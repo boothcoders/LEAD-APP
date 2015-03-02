@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "new_feedback_request" => "requests#new"
   get "feedback_give" => "requests#index"
   get "new_feedback_give" => "feedbacks#new"
+  get "decline_request" => "requests#decline"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
