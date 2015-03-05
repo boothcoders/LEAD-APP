@@ -7,5 +7,13 @@ class User < ActiveRecord::Base
   belongs_to :cohort
   has_many :interactions
   has_many :goal_attempts
+  
+  def full_name
+    return "#{self.last_name}, #{self.first_name}"
+  end
+
+  def first_initial
+    return "#{self.first_name.chars.first}. #{self.last_name}"
+  end
 
 end

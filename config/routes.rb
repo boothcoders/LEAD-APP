@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'static_pages#home'
+  get "my_progress" => "static_pages#my_progress"
+  get "my_progress_2" => "static_pages#my_progress_2"
+
 
   resources :goal_attempts
   resources :goals
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
   resources :interactions
 
   get "new_interaction" => "interactions#new"
-  get "interactions_list_path" => "interactions#index"
+  get "interactions_list" => "interactions#index"
   get "new_feedback_request" => "requests#new"
   get "feedback_give" => "requests#index"
   get "new_feedback_give" => "feedbacks#new"
