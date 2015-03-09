@@ -4,10 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :cohort_id, :presence => true
+  validates :email, :presence => true
+
   belongs_to :cohort
   has_many :interactions
   has_many :goal_attempts
-  
+
   def full_name
     return "#{self.last_name}, #{self.first_name}"
   end

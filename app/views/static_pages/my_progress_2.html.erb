@@ -7,7 +7,6 @@
 </div>
 
 
-
 <!-- Responsive, Isotope-based layout example -->
 
 <div class="row">
@@ -18,9 +17,9 @@
 
 <hr>
 
-<div class="row isotope-container"> 
+<div class="row isotope-container">
   <% @interactions.each do |interaction| %>
-    <% interaction.feedbacks.each do |feedback| %>    
+    <% interaction.feedbacks.each do |feedback| %>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
           <div class="panel panel-default <%= @panel_heading[feedback.entry_rating] if feedback.entry_rating <= 3 %>">
@@ -30,13 +29,13 @@
             <div class="panel-body">
               <dl>
                 <h5><%= feedback.enterer.full_name %></h5>
-    
+
                 <dt>Rating</dt>
                 <dd><%= feedback.entry_rating %></dd>
-    
+
                 <dt>Feedback</dt>
                 <dd><%= feedback.entry_note %></dd>
-    
+
               </dl>
 
             </div>

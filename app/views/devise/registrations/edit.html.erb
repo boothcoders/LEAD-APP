@@ -11,7 +11,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, :class => "form-control" %>
   </div>
-  
+
     <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true, :class => "form-control" %>
@@ -24,7 +24,7 @@
 
   <div class="field form-group">
     <%= f.label :cohort_id %><br />
-    <%= f.collection_select(:cohort_id, Cohort.all, :id, :cohort_name, { :class => "form-control" }) %>
+    <%= f.collection_select(:cohort_id, Cohort.all.order("cohort_name ASC"), :id, :cohort_name, :html => { :class => "form-control"}) %>
   </div>
 
 

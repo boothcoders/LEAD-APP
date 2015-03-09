@@ -17,9 +17,9 @@
     <%= f.hidden_field :requestor_id, :value => current_user.id %><br>
   </div>
   <div class="field">
-    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name,{ :class => "form-control" },{:multiple => 'true'} ) %>
+    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :full_name,{ :class => "form-control" },{:multiple => 'true'} ) %>
+
       <!--<%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name, {:class => "form-control"},{:id => 'request[requestee_ids][]' }) %>-->
-      
   </div>
   <!--http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select   LOOK AT THIS FOR MULTIPLE SELECT-->
   <% if @interaction_id %>
