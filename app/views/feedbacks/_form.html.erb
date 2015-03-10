@@ -9,31 +9,51 @@
       </ul>
     </div>
   <% end %>
-  <h3>Feedback notes: <%=Request.find_by(:id => @request).feedback_note%></h3>
+  <h3><%=Request.find_by(:id => @request).feedback_note%></h3>
   <div class="field">
     <%= f.hidden_field :enterer_id, :value => current_user.id %><br>
     <%= f.hidden_field :enteree_id, :value => Request.find_by(:id => @request).requestor.id %><br>
-    <%= f.hidden_field :goal_id, :value => '1' %><br> <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
+    <%= f.hidden_field :goal_id, :value => '1' %><br> <!-- WILL NEED TO UPDATE WITH PROPER GOAL %> -->
     <%= f.hidden_field :interaction_id, :value => Request.find_by(:id => @request).interaction.id %><br>
     <%= f.hidden_field :request_id, :value => Request.find_by(:id => @request).id %><br>
   </div>
   <div class="field">
     <%= f.label :entry_note %><br>
-    <%= f.text_area :entry_note %>
+    <%= f.text_area :entry_note, :class => "form-control" %>
   </div>
-  <div class="field">
+
+  <div class = "field">
+    <%= f.label "Please rate my performance" %>
+    <p></p>
+    <%= radio_button_tag(:entry_rating, 1) %>
+      <%= label_tag(1, "Below Average") %>
+    <p></p>
+    <%= radio_button_tag(:entry_rating, 2) %>
+      <%= label_tag(2, "Average") %>
+    <p></p>
+    <%= radio_button_tag(:entry_rating, 3) %>
+      <%= label_tag(3, "Above Average") %>
+  </div>
+
+
+
+
+
+
+<!--  <div class="field">
     <%= f.label "Please rate from 1 to 3 where 1 is 'below average', 2 is 'average', and 3 is 'above average'" %><br>
     <%= f.number_field :entry_rating %>
   </div>
+
+
+
 <!--   <div class="field">
     <%= f.label :request_id %><br>
     <%= f.number_field :request_id %>
   </div> -->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn btn-default" %>
   </div>
 <% end %>
 
-<% #TODO update so that we can pull up the proper interactions? %>
-<% #TODO automatically tie to the proper request where valid %>
 <% #TODO Fix goal entry %>
