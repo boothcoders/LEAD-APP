@@ -23,9 +23,14 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
-    @request.save
-    respond_with(@request)
+    if params[:requestee_id]
+      @request = Request.new(request_params)
+      @request.save
+      respond_with(@request)
+    else
+      @request = request_params
+      render 'temp'
+    end
   end
 
   def update
@@ -37,15 +42,15 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
-  
+
   def decline
     declined_request = Request.find_by(:id => params[:request])
     declined_request.destroy
-    
+
     @requests = Request.all
     respond_with(@requests)
   end
-  
+
   private
     def set_request
       @request = Request.find(params[:id])

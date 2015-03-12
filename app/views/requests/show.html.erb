@@ -1,10 +1,14 @@
 <h2>Request from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %> to provide feedback about <%= @request.interaction.interaction_title %> from <%= @request.interaction.interaction_date.to_date %></h2>
+<!--<h3>show this: <%= @request %></h3>-->
+
+<p>&nbsp</p>
 
 <p>
   <strong>Notes from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %>:</strong>
   <%= @request.feedback_note %>
-  
 </p>
+
+<p>&nbsp</p>
 
 <p id="notice"><%= notice %></p>
     <div class="row">
@@ -16,5 +20,6 @@
         </div>
     </div>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
+<p>&nbsp</p>
+
 <%= link_to 'Back', requests_path %>

@@ -1,0 +1,35 @@
+<div class = "row">
+    <h1 class = "text-center">My Progress</h1>
+</div>
+
+<div class = "row">
+    <p>&nbsp;</p>
+</div>
+
+<div class = "row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th class = "text-center">Date</th>
+          <th class = "text-center">Rating</th>
+          <th>Feedback</th>
+          <th>Reviewer</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @interactions.each do |interaction| %>
+            <% interaction.feedbacks.each do |feedback| %>
+                <tr>
+                    <td><%= interaction.interaction_title %></td>
+                    <td class = "text-center"><%= interaction.interaction_date.strftime("%b %e") %></td>
+                    <td class = "text-center"><%= feedback.entry_rating %></td>
+                    <td><%= feedback.entry_note %></td>
+                    <td><%= feedback.enterer.full_name %></td>
+                </tr>
+            <% end %>
+        <% end %>
+      </tbody>
+    </table>
+</div>

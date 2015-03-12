@@ -1,0 +1,86 @@
+<div class = "row">
+    <h1 class = "text-center">My Progress</h1>
+</div>
+
+<div class = "row">
+    <p>&nbsp;</p>
+</div>
+
+
+<!-- Responsive, Isotope-based layout example -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" id="quicksearch" placeholder="Search Interactions (start typing)" class="form-control">
+  </div>
+</div>
+
+<hr>
+
+<div class="row isotope-container">
+  <% @interactions.each do |interaction| %>
+    <% interaction.feedbacks.each do |feedback| %>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+          <div class="panel panel-default <%= @panel_heading[feedback.entry_rating] if feedback.entry_rating <= 3 %>">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= interaction.interaction_title %>, <%= interaction.interaction_date.strftime("%b %e") %></h3>
+            </div>
+            <div class="panel-body">
+              <dl>
+                <h5><%= feedback.enterer.full_name %></h5>
+
+                <dt>Rating</dt>
+                <dd><%= feedback.entry_rating %></dd>
+
+                <dt>Feedback</dt>
+                <dd><%= feedback.entry_note %></dd>
+
+              </dl>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>
+
+<!-- JavaScript for Isotope layout and quicksearch -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+<script>
+  $(function() {
+    // quick search regex
+    var qsRegex;
+
+    // init Isotope
+    var $container = $('.isotope-container').isotope({
+      itemSelector: '.isotope-item',
+      layoutMode: 'masonry',
+      filter: function() {
+        return qsRegex ? $(this).text().match( qsRegex ) : true;
+      }
+    });
+
+    // use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+      $container.isotope();
+    }, 200 ) );
+
+  });
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+      if ( timeout ) {
+        clearTimeout( timeout );
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+      timeout = setTimeout( delayed, threshold || 100 );
+    }
+  }
+</script>

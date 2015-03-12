@@ -1,32 +1,58 @@
 <div class="container">
     <div class="row">
-        <h1 class="col-md-10 col-md-offset-1 text-center">My Goal: <%= current_user.goal_attempts.first.goal.goal_name %></h1>
+        <% if current_user.goal_attempts.present? %>
+            <h1 class="col-md-10 col-md-offset-1 text-center">My Goal: <%= current_user.goal_attempts.first.goal.goal_name %></h1>
+        <% else %>
+            <h1 class="col-md-10 col-md-offset-1 text-center">No Current Goal</h1>
+        <% end %>
     </div>
 
-    <div>
-        <p></p>
-    </div>
+    <p>&nbsp</p>
 
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
-                <%= link_to "I had a Meeting", new_interaction_path, :type => "button", :class => "btn btn-default btn-success", :style => "white-space: normal" %>
-                <%= link_to "I want to Request Feedback", "/interactions", :type => "button", :class => "btn btn-default btn-danger", :style => "white-space: normal" %>
-                <%= link_to "I want to Give Feedback", feedback_give_path, :type => "button", :class => "btn btn-default btn-warning", :style => "white-space: normal" %>
-            </div>
+        <div class = "col-md-4">
+            <%= link_to "I had a Meeting", new_interaction_path, :type => "button", :class => "btn btn-lg btn-block btn-success", :style => "white-space: normal" %>
+            <p>&nbsp</p>
+        </div>
+        <div class = "col-md-4">
+            <%= link_to "I want to Request Feedback", interactions_list_path, :type => "button", :class => "btn btn-lg btn-block btn-danger", :style => "white-space: normal" %>
+            <p>&nbsp</p>
+        </div>
+        <div class = "col-md-4">
+            <%= link_to "I want to Give Feedback", feedback_give_path, :type => "button", :class => "btn btn-lg btn-block btn-warning", :style => "white-space: normal" %>
+            <p>&nbsp</p>
         </div>
     </div>
 
-    <div>
-        <p></p>
+<!--
+    <div class="row">
+        <div class = "col-md-12">
+            <%= link_to "I had a Meeting", new_interaction_path, :type => "button", :class => "btn btn-lg btn-block btn-success", :style => "white-space: normal" %>
+        </div>
     </div>
 
+    <p>&nbsp</p>
+
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-                <%= link_to "My Progress", "#", :type => "button", :class => "btn btn-lg btn-block btn-primary" %>
+        <div class = "col-md-12">
+            <%= link_to "I want to Request Feedback", interactions_list_path, :type => "button", :class => "btn btn-lg btn-block btn-danger", :style => "white-space: normal" %>
+        </div>
+    </div>
+
+    <p>&nbsp</p>
+
+    <div class="row">
+        <div class = "col-md-12">
+            <%= link_to "I want to Give Feedback", feedback_give_path, :type => "button", :class => "btn btn-lg btn-block btn-warning", :style => "white-space: normal" %>
+        </div>
+    </div>
+-->
+
+    <div class="row">
+        <div class="col-md-12">
+                <%= link_to "My Progress", my_progress_path, :type => "button", :class => "btn btn-lg btn-block btn-primary" %>
         </div>
     </div>
 
 
 </div>
-

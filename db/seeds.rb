@@ -25,19 +25,19 @@ user = [
   :first_name => "Princess",
   :last_name => "Leah",
   :email => "c@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "Mia",
   :last_name => "Hamm",
   :email => "d@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "Oprah",
   :last_name => "Winfrey",
   :email => "e@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "Darth",
@@ -49,7 +49,7 @@ user = [
   :first_name => "Ben",
   :last_name => "Kenobi",
   :email => "g@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "Luke",
@@ -61,19 +61,19 @@ user = [
   :first_name => "Han",
   :last_name => "Solo",
   :email => "i@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "R2",
   :last_name => "D2",
   :email => "j@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "C3",
   :last_name => "PO",
   :email => "k@example.com",
-  :cohort_id =>2
+  :cohort_id => 1
 },
 {
   :first_name => "George",
@@ -174,6 +174,7 @@ user.each do |user_new|
   user.password_confirmation = "12345678"
   user.first_name = user_new[:first_name]
   user.last_name = user_new[:last_name]
+  user.cohort_id = user_new[:cohort_id]
   user.save
 end
 
@@ -183,28 +184,28 @@ puts "There are now #{User.count} users in the database."
 
 cohort = [
 {
-  :cohort_name => "Bond"
+  :cohort_name => "LEAD 2014"
 },
 {
-  :cohort_name => "Harper"
+  :cohort_name => "Kapnick 2014"
 },
 {
-  :cohort_name => "Maroons"
+  :cohort_name => "Aon Exec Program 2014"
 },
 {
-  :cohort_name => "Gargoyles"
+  :cohort_name => "LEAD 2015"
 },
 {
-  :cohort_name => "Walker"
+  :cohort_name => "Kapnic 2015"
 },
 {
-  :cohort_name => "Davis"
+  :cohort_name => "Aon Exec Program 2015"
 },
 {
-  :cohort_name => "Nobels"
+  :cohort_name => "LEAD Staff 2014"
 },
 {
-  :cohort_name => "Rockefeller"
+  :cohort_name => "LEAD Staff 2015"
 }
 ]
 
