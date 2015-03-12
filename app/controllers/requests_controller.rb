@@ -43,8 +43,7 @@ class RequestsController < ApplicationController
   end
 
   def decline
-    declined_request = Request.find_by(:id => params[:request])
-    declined_request.destroy
+    @request.destroy
 
     @requests = Request.all
     respond_with(@requests)
