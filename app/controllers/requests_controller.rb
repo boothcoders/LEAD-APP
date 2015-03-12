@@ -23,14 +23,13 @@ class RequestsController < ApplicationController
   end
 
   def create
-    if params[:requestee_id]
       @request = Request.new(request_params)
       @request.save
-      respond_with(@request)
-    else
-      @request = request_params
-      render 'temp'
-    end
+      @interaction_id = @request.interaction_id
+      redirect_to interactions_list_path
+      #respond_with(@request)
+      #respond_with()
+      #render()
   end
 
   def update

@@ -24,7 +24,7 @@
 
   <div class="field form-group">
     <%= f.label :cohort_id %><br />
-    <%= f.collection_select(:cohort_id, Cohort.all.order("cohort_name ASC"), :id, :cohort_name, :html => { :class => "form-control"}) %>
+    <%= f.collection_select :cohort_id, Cohort.all.order("cohort_name ASC"), :id, :cohort_name, { prompt: "Select a Cohort" }, { class: "form-control" } %>
   </div>
 
 

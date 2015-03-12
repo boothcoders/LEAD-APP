@@ -11,13 +11,13 @@
     </div>
   <% end %>
   <% if @interaction_id %>
-    <h2>feedback on <%= Interaction.find_by(:id=> @interaction_id).interaction_title%> on <%= Interaction.find_by(:id=> @interaction_id).interaction_date.to_date%></h2>
+    <h2>Create feedback request for <%= Interaction.find_by(:id=> @interaction_id).interaction_title%> on <%= Interaction.find_by(:id=> @interaction_id).interaction_date.strftime("%b %e")%></h2>
   <% end %>
   <div class="field">
     <%= f.hidden_field :requestor_id, :value => current_user.id %><br>
   </div>
   <div class="field">
-    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :full_name,{ :class => "form-control" },{:multiple => 'true'} ) %>
+    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :full_name, {:prompt => "Please select"},{ :class => "form-control" }) %>
 
       <!--<%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name, {:class => "form-control"},{:id => 'request[requestee_ids][]' }) %>-->
   </div>
