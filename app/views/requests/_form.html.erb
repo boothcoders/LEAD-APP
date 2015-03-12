@@ -31,7 +31,6 @@
     </div>
   <% end %>
   <div class="field">
-  <!-- WILL NEED TO UPDATE WITH PROPER GOAL -->
     <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.last.goal.id %><br>
   </div>
   <div class="field">
@@ -45,5 +44,3 @@
     <%= f.submit class: "btn btn-success" %>
   </div>
 <% end %>
-
-<% #TODO Fix goal entry %>
