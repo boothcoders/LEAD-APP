@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "new_feedback_give" => "feedbacks#new"
   get "decline_request" => "requests#decline"
   get "destroy_request" => "requests#destroy"
+  get "new_goal_attempt" => "goal_attempts#new"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

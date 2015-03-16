@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %><br>
   </div>
   <div class="field">
     <%= f.label :goal_id %><br>
-    <%= f.number_field :goal_id %>
+    <%= f.collection_select(:goal_id, Goal.all, :id, :goal_name, {:selected => Goal.first, :class => "form-control" }) %>
   </div>
   <div class="field">
     <%= f.label :started_on %><br>
-    <%= f.datetime_select :started_on %>
+    <% Time.use_zone("Central Time (US & Canada)") do %>
+      <%= f.datetime_select :started_on, class: "form-control" %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :ended_on %><br>
-    <%= f.datetime_select :ended_on %>
+    <%= f.hidden_field :ended_on, :value => nil %><br>
   </div>
   <div class="actions">
     <%= f.submit %>

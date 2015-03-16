@@ -24,7 +24,8 @@ class GoalAttemptsController < ApplicationController
   def create
     @goal_attempt = GoalAttempt.new(goal_attempt_params)
     @goal_attempt.save
-    respond_with(@goal_attempt)
+    #respond_with(@goal_attempt)
+    redirect_to root_path
   end
 
   def update
