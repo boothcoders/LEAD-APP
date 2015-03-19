@@ -196,7 +196,7 @@ cohort = [
   :cohort_name => "LEAD 2015"
 },
 {
-  :cohort_name => "Kapnic 2015"
+  :cohort_name => "Kapnick 2015"
 },
 {
   :cohort_name => "Aon Exec Program 2015"
@@ -596,7 +596,7 @@ feedback = [
   :interaction_id => 1,
   :goal_id => 2,
   :entry_note => "You were awesome!",
-  :entry_rating => 4
+  :entry_rating => 3
 },
 {
   :enterer_id => 4,
@@ -620,7 +620,7 @@ feedback = [
   :interaction_id => 5,
   :goal_id => 1,
   :entry_note => "Great job!",
-  :entry_rating => 5
+  :entry_rating => 3
 },
 {
   :enterer_id => 17,
@@ -628,7 +628,7 @@ feedback = [
   :interaction_id => 5,
   :goal_id => 1,
   :entry_note => "Major improvement over last time",
-  :entry_rating => 4
+  :entry_rating => 3
 },
 {
   :enterer_id => 16,
@@ -636,7 +636,7 @@ feedback = [
   :interaction_id => 5,
   :goal_id => 1,
   :entry_note => "Had a great time hanging out with you",
-  :entry_rating => 5
+  :entry_rating => 3
 },
 {
   :enterer_id => 11,
@@ -644,7 +644,7 @@ feedback = [
   :interaction_id => 2,
   :goal_id => 1,
   :entry_note => "Much better",
-  :entry_rating => 5
+  :entry_rating => 3
 },
 {
   :enterer_id => 12,
@@ -660,7 +660,7 @@ feedback = [
   :interaction_id => 7,
   :goal_id => 2,
   :entry_note => "Nice improvement",
-  :entry_rating => 4
+  :entry_rating => 3
 },
 {
   :enterer_id => 20,
