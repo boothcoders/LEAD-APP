@@ -4,7 +4,7 @@
             <h1 class="col-md-10 col-md-offset-1 text-center">My Goal: <%= current_user.goal_attempts.last.goal.goal_name %></h1>
         </div>
             <div class="row">
-                <div class = "col-md-10 col-md-offset-1">
+                <div class = "col-md-12">
                     <%= link_to "Update goal", new_goal_attempt_path, :type => "button", :class => "btn btn-sm btn-block btn-default", :style => "white-space: normal" %>
                 </div>
             </div>
@@ -13,7 +13,7 @@
             <h1 class="col-md-10 col-md-offset-1 text-center">No Current Goal</h1>
             </div>
             <div class="row">
-                <div class = "col-md-10 col-md-offset-1">
+                <div class = "col-md-12">
                     <%= link_to "New goal", new_goal_attempt_path, :type => "button", :class => "btn btn-sm btn-block btn-default", :style => "white-space: normal" %>
                 </div>
             </div>
