@@ -11,11 +11,11 @@
   <% end %>
   <h3><%=Request.find_by(:id => @request).feedback_note%></h3>
   <div class="field">
-    <%= f.hidden_field :enterer_id, :value => current_user.id %><br>
-    <%= f.hidden_field :enteree_id, :value => Request.find_by(:id => @request).requestor.id %><br>
-    <%= f.hidden_field :goal_id, :value => '1' %><br> <!-- WILL NEED TO UPDATE WITH PROPER GOAL %> -->
-    <%= f.hidden_field :interaction_id, :value => Request.find_by(:id => @request).interaction.id %><br>
-    <%= f.hidden_field :request_id, :value => Request.find_by(:id => @request).id %><br>
+    <%= f.hidden_field :enterer_id, :value => current_user.id %>
+    <%= f.hidden_field :enteree_id, :value => Request.find_by(:id => @request).requestor.id %>
+    <%= f.hidden_field :goal_id, :value => current_user.goal_attempts.last.goal_id %>
+    <%= f.hidden_field :interaction_id, :value => Request.find_by(:id => @request).interaction.id %>
+    <%= f.hidden_field :request_id, :value => Request.find_by(:id => @request).id %>
   </div>
   <div class="field">
     <%= f.label :entry_note %><br>
@@ -23,34 +23,15 @@
   </div>
 
   <div class = "field">
-    <%= f.label "Please rate my performance" %>
-    <p></p>
-    <%= radio_button_tag(:entry_rating, 1) %>
-      <%= label_tag(1, "Below Average") %>
-    <p></p>
-    <%= radio_button_tag(:entry_rating, 2) %>
-      <%= label_tag(2, "Average") %>
-    <p></p>
-    <%= radio_button_tag(:entry_rating, 3) %>
-      <%= label_tag(3, "Above Average") %>
+    <%= f.label "Please rate my performance" %><br>
+    <input id="feedback_entry_rating_1" name="feedback[entry_rating]" type="radio" value=1 />
+    <label for="feedback_entry_rating_1">Below Average</label><br>
+    <input id="feedback_entry_rating_2" name="feedback[entry_rating]" type="radio" value=2 />
+    <label for="feedback_entry_rating_2">Average</label><br>
+    <input id="feedback_entry_rating_3" name="feedback[entry_rating]" type="radio" value=3 />
+    <label for="feedback_entry_rating_3">Above Average</label><br>
   </div>
 
-
-
-
-
-
-<!--  <div class="field">
-    <%= f.label "Please rate from 1 to 3 where 1 is 'below average', 2 is 'average', and 3 is 'above average'" %><br>
-    <%= f.number_field :entry_rating %>
-  </div>
-
-
-
-<!--   <div class="field">
-    <%= f.label :request_id %><br>
-    <%= f.number_field :request_id %>
-  </div> -->
   <div class="actions">
     <%= f.submit "Submit", :class => "btn btn-default" %>
   </div>
