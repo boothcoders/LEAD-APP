@@ -1,5 +1,5 @@
-<h1>Feedback for <%= Request.find_by(:id=>@request).requestor.first_name %> <%= Request.find_by(:id=>@request).requestor.last_name %> for <%= Request.find_by(:id=>@request).interaction.interaction_title  %> on <%= Request.find_by(:id=>@request).interaction.interaction_date.to_date  %></h1>
+<h1>Feedback for <%= Request.find_by(:id=>@request).requestor.first_last %> about <%= Request.find_by(:id=>@request).interaction.interaction_title  %> (<%= Request.find_by(:id=>@request).interaction.interaction_date.strftime("%b %e")  %>)</h1>
 
 <%= render 'form' %>
-
+<br>
 <%= link_to 'Back', feedback_give_path %>
