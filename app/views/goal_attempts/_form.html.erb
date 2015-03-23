@@ -14,20 +14,20 @@
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %><br>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :goal_id %><br>
-    <%= f.collection_select(:goal_id, Goal.all, :id, :goal_name, {:selected => Goal.first, :class => "form-control" }) %>
+    <%= f.collection_select(:goal_id, Goal.all, :id, :goal_name, {:selected => Goal.first}, {:class => "form-control" }) %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :started_on %><br>
     <% Time.use_zone("Central Time (US & Canada)") do %>
       <%= f.datetime_select :started_on, class: "form-control" %>
     <% end %>
   </div>
   <div class="field">
-    <%= f.hidden_field :ended_on, :value => nil %><br>
+    <%= f.hidden_field :ended_on, :value => nil %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success" %>
   </div>
 <% end %>
