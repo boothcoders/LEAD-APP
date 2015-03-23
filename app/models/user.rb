@@ -20,5 +20,9 @@ class User < ActiveRecord::Base
   def first_initial
     return "#{self.first_name.chars.first}. #{self.last_name}"
   end
+  
+  def first_last
+    return "#{self.first_name} #{self.last_name}"
+  end
 
 end

@@ -1,24 +1,25 @@
-<h2>Request from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %> to provide feedback about <%= @request.interaction.interaction_title %> from <%= @request.interaction.interaction_date.to_date %></h2>
-<!--<h3>show this: <%= @request %></h3>-->
+<div class="row">
+  <div class="col-md-12">
+    <h2>Do you want to give <%= @request.requestor.first_last %> feedback about <%= @request.interaction.interaction_title %> (<%= @request.interaction.interaction_date.strftime("%b %e") %>)?</h2>    
+  </div>
+</div>
 
-<p>&nbsp</p>
-
-<p>
-  <strong>Notes from <%= @request.requestor.first_name %> <%= @request.requestor.last_name %>:</strong>
-  <%= @request.feedback_note %>
-</p>
-
-<p>&nbsp</p>
-
-<p id="notice"><%= notice %></p>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
-                <%= link_to "Give feedback", new_feedback_give_path(:request => @request.id), :type => "button", :class => "btn btn-default btn-success", :style => "white-space: normal" %>
-                <%= link_to "Decline to give feedback", "#", :type => "button", :class => "btn btn-default btn-danger", :style => "white-space: normal" %>
-            </div>
-        </div>
-    </div>
-<p>&nbsp</p>
+<div class="row">
+  <div class="col-md-12">
+    <strong>Notes from <%= @request.requestor.first_last %>:</strong>
+    <%= @request.feedback_note %>
+  </div>
+</div>
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Give feedback", new_feedback_give_path(:request => @request.id), :type => "button", :class => "btn btn-lg btn-block btn-success", :style => "white-space: normal" %>
+    <p>&nbsp;</p>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Decline to give feedback", "#", :type => "button", :class => "btn btn-lg btn-block btn-danger", :style => "white-space: normal" %>
+    <p>&nbsp;</p>
+  </div>
+</div>
 
 <%= link_to 'Back', requests_path %>
