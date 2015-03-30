@@ -11,8 +11,9 @@ class StaticPagesController < ApplicationController
     def my_progress_2
         @interactions = current_user.interactions.order("interaction_date DESC")
         @panel_heading = [0, "panel-danger", "panel-warning","panel-success"]
-        
-        
+    end
+    
+    def about_page
     end
 
 end

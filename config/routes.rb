@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get "my_progress" => "static_pages#my_progress"
   get "my_progress_2" => "static_pages#my_progress_2"
+  get "about" => "static_pages#about_page"
 
 
   resources :goal_attempts
