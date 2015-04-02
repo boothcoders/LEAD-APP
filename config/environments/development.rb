@@ -13,6 +13,18 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # Mail gun set up
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV["MAILGUN_DOMAIN"],
+    :user_name => ENV["MAILGUN_USER_NAME"],
+    :password => ENV["MAILGUN_PASSWORD"]
+  }
+
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
