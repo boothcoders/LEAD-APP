@@ -4,6 +4,8 @@ class Feedback < ActiveRecord::Base
 
     belongs_to :goal_attempt
     belongs_to :interaction
+    
+    validates :entry_rating, :presence => true
 
     # after_validation :update_requests
 
@@ -12,7 +14,5 @@ class Feedback < ActiveRecord::Base
     #     Request.find_by(:requestor_id => current_user.id).feedback_completed = true
     #   end
     # end
-
-# TODO Update the Request-completed.  I think we can do it here.
 
 end

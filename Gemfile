@@ -25,6 +25,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+# Addding figaro gem to get environment variable capabilities
+gem 'figaro', '~> 1.1.0'
+# Adding mailgun gem to get mailgun api access
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

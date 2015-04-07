@@ -71,7 +71,26 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
+  # Keeps password reset tokens from being leaked into logs
+  config.log_level = :warn
+  
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Mail gun set up
+  config.action_mailer.default_url_options = { :host => 'rocking-chair.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 2525,
+    :domain => ENV["MAILGUN_DOMAIN"],
+    :user_name => ENV["MAILGUN_SMTP_LOGIN"],
+    :password => ENV["MAILGUN_SMTPPASSWORD"]
+  }
+
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  
 end
