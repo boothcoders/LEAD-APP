@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <label for="request_reqestee_id">Request feedback from:</label>
-    <%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :first_initial, {:prompt => "Please select a reviewer"},{ :class => "form-control" }) %>
+    <%= f.collection_select(:requestee_id, User.where(:cohort_id => current_user.cohort_id), :id, :first_initial, {:prompt => "Please select a reviewer"},{ :class => "form-control" }) %>
     <br>
       <!--<%= f.collection_select(:requestee_id, User.where.not(:id => current_user.id), :id, :last_name, {:class => "form-control"},{:id => 'request[requestee_ids][]' }) %>-->
   </div>
