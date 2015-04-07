@@ -83,10 +83,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
     :address => "smtp.mailgun.org",
-    :port => 2525,
-    :domain => ENV["MAILGUN_DOMAIN"],
+    :port => ENV["MAILGUN_SMTP_PORT"],
+    :domain => "rocking-chair.herokuapp.com",
     :user_name => ENV["MAILGUN_SMTP_LOGIN"],
-    :password => ENV["MAILGUN_SMTPPASSWORD"]
+    :password => ENV["MAILGUN_SMTP_PASSWORD"]
   }
 
 
