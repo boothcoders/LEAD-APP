@@ -18,6 +18,14 @@ img.brand-img {
   height: 40px;
 }
 
+i.fa-check {
+  color: $brand-success;
+}
+
+i.fa-times {
+  color: $brand-danger;
+}
+
 /* footer */
 
 footer {
