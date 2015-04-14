@@ -5,4 +5,12 @@ class Interaction < ActiveRecord::Base
     has_many :feedbacks
     
     validates :interaction_title, :presence => true
+    
+    def requests_sent
+        self.requests.count
+    end
+    
+    def requests_complete
+        self.requests.where({:feedback_completed => TRUE}).count
+    end
 end

@@ -6,6 +6,7 @@
       <th>Interaction</th>
       <th>Date</th>
       <th>Notes</th>
+      <th>Requests Completed</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
           <td><%= interaction.interaction_title %></td>
           <td><%= interaction.interaction_date.strftime("%b %e") %></td>
           <td><%= interaction.interaction_notes %></td>
+          <td><%= "#{interaction.requests_complete} / #{interaction.requests_sent}"%></td>
           <td><%= link_to '<i class="fa fa-search btn btn-info"></i>'.html_safe, interaction %></td>
           <td><%= link_to '<i class="fa fa-user-plus btn btn-success"></i>'.html_safe, new_feedback_request_path(:interaction_id => interaction.id) %></td>
         </tr>
