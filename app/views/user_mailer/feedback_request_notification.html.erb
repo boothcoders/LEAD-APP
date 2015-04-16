@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @requestee.name %></h1>
+    <p>
+      You have received a feedback request from <%= @requestor.first_last %> for
+      your recent interaction (<%= @request.interaction.interaction_title %>) on
+      <%= @request.interaction.interaction_date %>.
+    </p>
+    <p>
+      To complete feedback for this request, you can use the following link: </br>
+      <%= @feedback_link %>.
+    </p>
+    <p>Best,</p>
+    <p>Rocking Chair Team</p>
+  </body>
+</html>

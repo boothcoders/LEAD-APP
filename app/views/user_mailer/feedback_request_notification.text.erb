@@ -1,0 +1,11 @@
+Hi, <%= @requestee.name %>
+
+You have received a feedback request from <%= @requestor.first_last %> for
+your recent interaction (<%= @request.interaction.interaction_title %>) on
+<%= @request.interaction.interaction_date %>.
+
+To complete feedback for this request, you can use the following link:
+<%= @feedback_link %>
+
+Best,
+Rocking Chair Team

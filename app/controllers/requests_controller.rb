@@ -26,10 +26,8 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
       @request.save
       @interaction_id = @request.interaction_id
+      UserMailer.feedback_request_notification(@request)
       redirect_to interactions_list_path
-      #respond_with(@request)
-      #respond_with()
-      #render()
   end
 
   def update
