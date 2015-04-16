@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
       @request.save
       @interaction_id = @request.interaction_id
-      UserMailer.feedback_request_notification(@request)
+      UserMailer.feedback_request_notification(@request).deliver_now
       redirect_to interactions_list_path
   end
 

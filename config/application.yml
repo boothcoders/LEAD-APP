@@ -12,3 +12,6 @@
  development:
   test_of_env: "This is a test variable"
   MAILGUN_API_KEY: "key-0cb7470c221b2132fd61d0abee611b12"
+  MAILGUN_DOMAIN: "app329d792e476d43e1bc5580095f2893b2.mailgun.org"
+  MAILGUN_SMTP_LOGIN: "postmaster@app329d792e476d43e1bc5580095f2893b2.mailgun.org" 
+  MAILGUN_SMTP_PASSWORD: "91eb40c8d0b0bdbbe5fbeb7cf30839d6"

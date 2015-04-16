@@ -21,8 +21,8 @@ Rails.application.configure do
     :address => "smtp.mailgun.org",
     :port => 2525,
     :domain => ENV["MAILGUN_DOMAIN"],
-    :user_name => ENV["MAILGUN_USER_NAME"],
-    :password => ENV["MAILGUN_PASSWORD"]
+    :user_name => ENV["MAILGUN_SMTP_LOGIN"],
+    :password => ENV["MAILGUN_SMTP_PASSWORD"]
   }
 
 
